@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Archive &middot; Real Time &amp; Space</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="This timeline tells who and what have been generated through Real Time and Space (RTS), an artist studio and residency program in Oakland, CA. The timeline is a project by Lexa Walsh, 2017 Archivist in Residence at RTS, and Mark Nicola, RTS member and coder extraordinaire.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-title" content="Lexa Walsh">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+
+
+
+    <div id='timeline-embed' style="width: 100%;"></div>
+
+    <!-- 3 -->
+    <script type="text/javascript">
+      // The TL.Timeline constructor takes at least two arguments:
+      // the id of the Timeline container (no '#'), and
+      // the URL to your JSON data file or Google spreadsheet.
+      // the id must refer to an element "above" this code,
+      // and the element must have CSS styling to give it width and height
+      // optionally, a third argument with configuration options can be passed.
+      // See below for more about options.
+      (function() {
+        var h = document.documentElement.clientHeight - 16,
+        tl = document.getElementById('timeline-embed');
+        tl.style.height = h+"px";
+        timeline = new TL.Timeline('timeline-embed',
+          //'https://docs.google.com/spreadsheets/d/1ZF-_IhCtErZXyW23M43Sx4Gk-VkKucOc0JBK8L6rrRU/pubhtml',
+          'https://docs.google.com/spreadsheets/d/1mZ38KXHaDzaFAJvBmRnSGl8xfb2_0mYAmHrlgIGfb2c/pubhtml',
+          {
+            debug: true,
+            scale_factor: 6,
+            timenav_height_percentage: 33,
+            hash_bookmark: true,
+          });
+      })();
+    </script>
+
+
+  </body>
+</html>
