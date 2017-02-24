@@ -1,0 +1,20 @@
+////|
+////|     Google Spreadsheet Formulas
+////|
+////|           - these help format our timeline point into nice html
+////|           - here they are in case we lose them
+////|
+
+=CONCATENATE("<div class='blurb'>",L2:O2,"</div>")
+
+=IF(NOT(ISBLANK(Content!B2)),CONCATENATE("<h3>",Content!B2,"</h3>"),)
+=IF(NOT(ISBLANK(Content!C2)),CONCATENATE("<img src='",Content!C2,"' /'>"),)
+=IF(NOT(ISBLANK(Content!D2)),CONCATENATE("<div class='link'><a href='",Content!D2,"' target='_blank'>",IF(NOT(ISBLANK(Content!E2)),Content!E2,"Learn More"),"</a></div>"),)
+=IF(NOT(ISBLANK(Content!F2)),CONCATENATE("<div class='description'><p>",Content!F2,"</p></div>"),)
+
+
+////|
+////|         Group column
+////|
+
+=IF(E2="x","Residency",IF(F2="x","Event",IF(G2="x","Member",)))
