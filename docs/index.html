@@ -18,6 +18,24 @@
     <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
 
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0px;
+      }
+      .tl-timemarker .tl-timemarker-group-member {
+        background: aquamarine;
+      }
+      .tl-timemarker .tl-timemarker-group-residency {
+        background: fuchsia;
+      }
+      .tl-timemarker .tl-timemarker-group-event {
+        background: orange;
+      }
+      .tl-timemarker .tl-timemarker-group-none {
+        background: ruby;
+      }
+    </style>
   </head>
   <body>
 
@@ -33,19 +51,33 @@
       // the id must refer to an element "above" this code,
       // and the element must have CSS styling to give it width and height
       // optionally, a third argument with configuration options can be passed.
-      // See below for more about options.
+      // See below for more about options.  https://docs.google.com/spreadsheets/d/e/2PACX-1vQwHImdbvGYqf1LQd-Pd_LeJ6_GQcggWsWmmntOBwnzS2sh9P5_B7gjfQf-jWqtF13_XiGVNN3kyTvR/pubhtml
       (function() {
         var h = document.documentElement.clientHeight - 16,
-        tl = document.getElementById('timeline-embed');
+        tl = document.getElementById('timeline-embed'),
+        timeline,
+        flagbg;
+
         tl.style.height = h+"px";
         timeline = new TL.Timeline('timeline-embed',
-          'https://docs.google.com/spreadsheets/d/1mZ38KXHaDzaFAJvBmRnSGl8xfb2_0mYAmHrlgIGfb2c/pubhtml',
+          'https://docs.google.com/spreadsheets/d/1NnPttIPK4drEG1ueTBNvVe_uRSaVNlsS6B0CLrNV24U/pubhtml',
           {
             debug: true,
             scale_factor: 6,
             timenav_height_percentage: 33,
             hash_bookmark: true,
           });
+
+        flagbg = function() {
+          timeline.config.events.forEach(function(flag,i){
+            var el = $('#'+flag.unique_id+'-marker .tl-timemarker-content-container'),
+            cname = flag.group ? flag.group.toLowerCase() : 'none';
+
+            $(el).addClass('tl-timemarker-group-'+cname);
+          });
+        }
+        flagbg();
+
       })();
     </script>
 
